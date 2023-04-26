@@ -1,16 +1,16 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from enum import Enum
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Color(str, Enum):
+    RED = 'stop'
+    GREEN = 'go'
+    YELLOW = 'get ready'
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+my_str = 'go'
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if my_str == Color.GREEN:
+    # 👇️ this runs
+    print('success')
+
+print(my_str == Color.YELLOW)  # 👉️ False

@@ -25,7 +25,7 @@ class Task:
     def question(self):
         return self.question
 
-    @type.setter
+    @question.setter
     def question(self, new_question):
         self.question = new_question
 
@@ -33,7 +33,7 @@ class Task:
     def answer(self):
         return self.answer
 
-    @type.setter
+    @answer.setter
     def answer(self, new_answer):
         self.answer = new_answer
 
