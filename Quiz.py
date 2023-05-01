@@ -1,8 +1,11 @@
 from Task import *
+
+
 class Quiz:
     def __init__(self):
         self.tasks = list()
         self.time = None
+        self.result = 0
 
     @property
     def time(self):
@@ -16,18 +19,26 @@ class Quiz:
     def time(self):
         self.time = None
 
-    def add_task(self, task_type:Task_type):
+    def add_task(self, task_type: Task_type):
         task = Task(task_type)
         self.tasks.append(task)
 
-    def delete_task(self, task:Task):
+    def delete_task(self, task: Task):
         self.tasks.remove(task)
+
+    def progress_calculate(self):
+        for task in self.tasks:
+            self.result += task.check_answer()
+        self.result = self.result / len(self.tasks)
+        return self.result
 
     def save(self):
         return Memento(self.tasks, self.time)
-    def restore(self, memento:Memento):
+
+    def restore(self, memento: Memento):
         self.tasks = memento.tasks
         self.time = memento.time
+
 
 class Memento():
     def __init__(self, tasks, time):

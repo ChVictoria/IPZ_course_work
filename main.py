@@ -7,7 +7,7 @@ class Color(str, Enum):
     YELLOW = 'get ready'
 
 
-my_str = 'go'
+my_str = Color.GREEN
 
 if my_str == Color.GREEN:
     # 👇️ this runs
